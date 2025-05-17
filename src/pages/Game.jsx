@@ -119,19 +119,20 @@ const Game = () => {
                     )
                 }
             </div>
+            <div className='flex items-center gap-5 my-5'>
+                <button onClick={resetGame} className="bg-[#27548A] text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
+                    Reset
+                </button>
 
-            {
-                won && (
-                    <div className='flex items-center gap-5 my-5'>
-                        <button onClick={resetGame} className="bg-[#27548A] text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
-                            Reset
-                        </button>
+                {
+                    won && (
+
                         <button onClick={nextLevel} className="bg-[#27548A] text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
                             Next Level
                         </button>
-                    </div>
-                )
-            }
+                    )
+                }
+            </div>
 
         </div>
     )
