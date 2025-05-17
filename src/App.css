@@ -1,0 +1,11 @@
+body {
+  width: 100%;
+  background-color: #E5E9FE;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+.hero {
+  background-image: url('./assets/images/background.svg');
+  background-size: cover;
+  background-position: center;
+}
