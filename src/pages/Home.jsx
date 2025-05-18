@@ -45,7 +45,7 @@ const Home = () => {
                Memory matching game
             </h1>
             <p className="w-[90%] text-lg text-gray-600 mb-12 font-semibold min-[700px] text-center">Test your memory and have fun with our exciting card matching game. Challenge yourself and beat your high score!</p>
-            <button onClick={handleStartPlaying} className="bg-[#27548A] text-white px-18 py-3 cursor-pointer font-semibold text-lg hover:bg-[#1e4271] transition duration-300 active:scale-95">
+            <button onClick={handleStartPlaying} className="bg-[#27548A] max-sm:py-4 text-white px-18 py-3 cursor-pointer font-semibold text-lg hover:bg-[#1e4271] transition duration-300 active:scale-95">
                Start Playing
             </button>
          </div>
@@ -79,7 +79,7 @@ const Home = () => {
                   Join thousands of players who are already enjoying our card flip game. Start playing now and see how far you
                   can go!
                </p>
-               <button onClick={handleStartPlaying} className="bg-[#27548A] text-white px-18 py-3 cursor-pointer font-semibold text-lg hover:bg-[#1e4271] transition duration-300 active:scale-95">
+               <button onClick={handleStartPlaying} className="bg-[#27548A] max-sm:py-4 text-white px-18 py-3 cursor-pointer font-semibold text-lg hover:bg-[#1e4271] transition duration-300 active:scale-95">
                   Play Now
                </button>
             </div>

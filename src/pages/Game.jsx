@@ -19,7 +19,7 @@ const Game = () => {
             setMatched([...matched, firstid, id]);
             setFlipped([]);
             setDisabled(false);
-            setScore((prev) => prev + 10);
+            setScore((prev) => prev + (10 * level));
         } else {
             setTimeout(() => {
                 setFlipped([]);
@@ -88,7 +88,7 @@ const Game = () => {
     );
 
     return (
-        <div className="w-full min-h-screen p-5 flex items-center flex-col mb-20">
+        <div className="w-full min-h-screen p-5 flex items-center flex-col mb-20 max-sm:justify-center">
             <h1 className='text-2xl font-bold text-center capitalize mt-10 mb-8'>Memory Game</h1>
             <div className='w-full flex items-center justify-center gap-[100px]'>
                 <h3 className='mb-5 font-semibold tracking-wider uppercase text-[15px] text-white px-5 py-1 rounded-md bg-[#27548A]'>Score : {score}</h3>
@@ -96,12 +96,14 @@ const Game = () => {
                 <h3 className='mb-5 font-semibold tracking-wider uppercase text-[15px] text-white px-5 py-1 rounded-md bg-[#27548A]'>Level : {level}</h3>
 
             </div>
-            <div className="grid bg-[#cfd1e0] p-3 rounded-md gap-3 relative select-none" style={{
+
+            {/* Game Board */}
+            <div className="grid bg-[#d4d7eb] p-1.5 rounded-md gap-1.5 relative select-none" style={{
                 gridTemplateColumns: `repeat(${gridSize},minmax(0,1fr))`,
                 width: `min(100%, ${gridSize * 5.5}rem)`,
             }}>
                 {cards.map(card => (
-                    <div onClick={() => handleFlipCard(card.id)} className={`aspect-square border border-[#b7bacc] flex items-center justify-center text-center text-xl font-bold rounded-md cursor-pointer transition-all duration-300 
+                    <div onClick={() => handleFlipCard(card.id)} className={`aspect-square border border-[#b7baccb6] flex items-center justify-center text-center text-xl font-bold rounded-md cursor-pointer transition-all duration-300 
                     ${isFlipped(card.id) ? isSolved(card.id) ? 'bg-[#27548A] text-white' : 'bg-[#27548A] text-white' : 'bg-[#f0f2ff]'}
                     `} key={card.id}>
                         {isFlipped(card.id) ? card.number : "?"}
@@ -120,20 +122,18 @@ const Game = () => {
                 }
             </div>
             <div className='flex items-center gap-5 my-5'>
-                <button onClick={resetGame} className="bg-[#27548A] text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
+                <button onClick={resetGame} className="bg-[#27548A] max-sm:py-4 max-sm:px-5 max-sm:text-md text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
                     Reset
                 </button>
 
                 {
-                    won && (
-
-                        <button onClick={nextLevel} className="bg-[#27548A] text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
+                    won && level < 5 && (
+                        <button onClick={nextLevel} className="bg-[#27548A] max-sm:py-4 max-sm:px-5 max-sm:text-md text-white px-6 py-3 cursor-pointer font-semibold text-sm hover:bg-[#1e4271] transition duration-300 active:scale-95">
                             Next Level
                         </button>
                     )
                 }
             </div>
-
         </div>
     )
 }
